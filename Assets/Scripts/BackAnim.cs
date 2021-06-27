@@ -35,7 +35,6 @@ public class BackAnim : MonoBehaviour
         CanvasGroup selfRectAlpha = selfRect.GetComponent<CanvasGroup>();
         
         animSequence = DOTween.Sequence();
-
         animSequence.Append(selfRectAlpha.DOFade(1, alphaSpeed).SetEase(alphaEase))
         .Insert(0, selfRect.DOScale(1f, scaleSpeed).SetEase(scaleEase));
     }

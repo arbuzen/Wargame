@@ -15,7 +15,7 @@ public class UniformAnim : MonoBehaviour
     public float moveScale;
     public float moveDelay;
     
-    [Header("Speeds")]
+    [Header("Settings")]
     public float alphaSpeed;
     public float moveSpeed;
     public float scaleSpeed;
@@ -47,6 +47,7 @@ public class UniformAnim : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && showSoloTest != false)
         {
+            Debug.Log("UniformAnim.Update.StartAnim");
             Reset();
             
             Sequence TweenIn = DOTween.Sequence();
@@ -59,7 +60,6 @@ public class UniformAnim : MonoBehaviour
         CanvasGroup selfRectAlpha = selfRect.GetComponent<CanvasGroup>();
         
         animSequence = DOTween.Sequence();
-
         animSequence.Append(selfRectAlpha.DOFade(1, alphaSpeed).SetEase(alphaEase))
         .Insert(0, selfRect.DOLocalMove(selfRectPos, moveSpeed).SetEase(moveEase));
         ExtraAnim(showExtraAnim);
